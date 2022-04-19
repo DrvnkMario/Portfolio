@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+  mongoDB:
+    image: mongo:3
+
+  aplikacja:
+    image: aplikacja
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongoDB
+    environment: 
+      - MONGO_IP=mongoDB
